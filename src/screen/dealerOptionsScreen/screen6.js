@@ -11,10 +11,10 @@ import {
 import React, {Component} from 'react';
 
 export default class screen6 extends Component {
-  state = {shAct: false};
+  state = {shAct: false, counter: 0};
   setShow = (show, cnt) => {
-    console.log({cnt});
-    this.setState({shAct: show});
+    
+    this.setState({shAct: show, counter: cnt});
   };
 
   renderHeader = () => {
@@ -44,6 +44,7 @@ export default class screen6 extends Component {
 
   renderAppointmentView = () => {
     const {shAct} = this.state;
+    const {counter} = this.state;
     return (
       <View style={styles.appointmentView}>
         <View style={styles.enquiryTextView}>
@@ -61,7 +62,7 @@ export default class screen6 extends Component {
         <View style={styles.enquiryTxtImgView}>
           <View style={styles.imgTxtMainView}>
             <TextInput style={styles.input} placeholder="Enquiry date" />
-            { shAct == true ? this.renderActionIcon() : null}
+            { (shAct == true && counter == 1 ) ? this.renderActionIcon() : null}
           </View>
           
           <TouchableOpacity
@@ -113,6 +114,7 @@ export default class screen6 extends Component {
   renderTimeView = () => {
 
     const {shAct} = this.state;
+    const {counter} = this.state;
     return (
       <View style={styles.appointmentView}>
         <View style={styles.enquiryTextView}>
@@ -130,7 +132,7 @@ export default class screen6 extends Component {
         <View style={styles.enquiryTxtImgView}>
           <View style={styles.imgTxtMainView}>
           <TextInput style={styles.input} placeholder="Enquiry Time" />
-            { shAct == true ? this.renderActionIcon() : null}
+            { (shAct == true && counter == 2) ? this.renderActionIcon() : null}
           </View>
           
           <TouchableOpacity style={styles.dotImg} onPress={(show,cnt) => this.setShow(true,2)}>
@@ -182,7 +184,7 @@ export default class screen6 extends Component {
   renderSendEnquireView = () => {
 
     const {shAct} = this.state;
-
+    const {counter} = this.state;
     return (
       <View style={styles.appointmentView}>
         <View style={styles.enquiryTextView}>
@@ -200,7 +202,7 @@ export default class screen6 extends Component {
         <View style={styles.enquiryTxtImgView}>
         <View style={styles.imgTxtMainView}>
           <TextInput style={styles.input} placeholder="send enquiry" />
-            { shAct == true ? this.renderActionIcon() : null}
+            { (shAct == true && counter == 3) ? this.renderActionIcon() : null}
           </View>
           
           <TouchableOpacity style={styles.dotImg} onPress={(show, cnt) => this.setShow(true,3)}>
