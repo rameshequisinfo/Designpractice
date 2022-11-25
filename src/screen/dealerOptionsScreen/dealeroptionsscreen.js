@@ -36,7 +36,7 @@ export default class dealeroptionsscreen extends Component {
         <TouchableOpacity style={styles.headerTouchable}>
           <Image
             source={require('./Images/menu.png')}
-            style={styles.imgSize}
+            style={styles.headerImgSize}
             resizeMode={'contain'}
           />
         </TouchableOpacity>
@@ -130,13 +130,18 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   headerTouchable: {
-    width: '10%',
-    height: '50%',
+    height: '100%',
+    aspectRatio:1,
     alignItems: 'center',
+    justifyContent:'center'
   },
   imgSize: {
     height: '100%',
     width: '100%',
+  },
+  headerImgSize: {
+    height: '60%',
+    width: '60%',
   },
   headerText: {
     flex: 1,
